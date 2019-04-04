@@ -23,15 +23,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `registration`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `registration` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `client_id` int(11) DEFAULT NULL,
-  `branch_id` int(11) DEFAULT NULL,
-  `staff_id` int(11) DEFAULT NULL,
-  `dateJoined` date DEFAULT NULL
+  `username` varchar(128) NOT NULL,
+  `email` varchar(160) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `create_ad` datetime DEFAULT NULL,
+  `update_at` timestamp NULL DEFAULT NULL,
+  `is_active` enum('Active','Inactive') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -39,35 +41,22 @@ CREATE TABLE `registration` (
 --
 
 --
--- Indexes for table `registration`
+-- Indexes for table `user`
 --
-ALTER TABLE `registration`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `client_id` (`client_id`),
-  ADD KEY `branch_id` (`branch_id`),
-  ADD KEY `staff_id` (`staff_id`);
+  ADD UNIQUE KEY `table1col_UNIQUE` (`username`),
+  ADD UNIQUE KEY `email_UNIQUE` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `registration`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `registration`
+ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `registration`
---
-ALTER TABLE `registration`
-  ADD CONSTRAINT `registration_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`),
-  ADD CONSTRAINT `registration_ibfk_2` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`id`),
-  ADD CONSTRAINT `registration_ibfk_3` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`);
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.6.6
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 27, 2019 at 07:43 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Host: localhost
+-- Generation Time: Apr 04, 2019 at 02:52 AM
+-- Server version: 5.7.17-log
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dreamhome`
+-- Database: `std_6102041510038`
 --
 
 -- --------------------------------------------------------
@@ -29,13 +27,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `client` (
-  `id` int(5) NOT NULL,
-  `fname` varchar(30) NOT NULL,
-  `lname` varchar(30) NOT NULL,
-  `telno` varchar(11) NOT NULL,
-  `preftype` varchar(20) NOT NULL,
-  `maxrent` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL,
+  `client_no` varchar(5) DEFAULT NULL,
+  `f_name` varchar(100) DEFAULT NULL,
+  `l_name` varchar(100) DEFAULT NULL,
+  `tel_no` varchar(11) DEFAULT NULL,
+  `pref_type` varchar(50) DEFAULT NULL,
+  `max_rent` float(7,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -55,9 +54,7 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
